@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ExpTest"
 include(":app")
+include(":designsystem")

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.desingsystem"
+    namespace = "com.example.designsystem"
     compileSdk = 36
 
     defaultConfig {
@@ -32,21 +32,21 @@ android {
         jvmTarget = "11"
     }
 }
+
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-
                 groupId = "com.github.bharath1997"
                 artifactId = "designsystem"
                 version = "0.1.0-alpha"
             }
         }
 
+        // GitHub Maven repo
         repositories {
             maven {
-                name = "GitHubPackages"
                 url = uri("https://maven.pkg.github.com/bharath1997/ExpTest")
                 credentials {
                     username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
@@ -58,7 +58,6 @@ afterEvaluate {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
